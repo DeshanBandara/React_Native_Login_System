@@ -3,7 +3,9 @@ import React, {useState} from 'react'
 
 const RegistrationPage = ({ navigation }) => {
     const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setCPassword] = useState('');
 
     const handleRegister = () => {
         if(username && password) {
@@ -21,6 +23,12 @@ const RegistrationPage = ({ navigation }) => {
         style={styles.input}
         placeholder='User Name'
         value={username}
+        onChangeText={setEmail}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder='Email'
+        value={email}
         onChangeText={setUsername}
       />
       <TextInput
@@ -29,6 +37,13 @@ const RegistrationPage = ({ navigation }) => {
         secureTextEntry
         value={password}
         onChangeText={setPassword}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder='Confirm Password'
+        secureTextEntry
+        value={confirmPassword}
+        onChangeText={setCPassword}
       />
       <Button title='Register' onPress={handleRegister} />
       <Button title='Back to Login' onPress={() => navigation.navigate('Login')} />
