@@ -1,8 +1,13 @@
 import { StyleSheet, Text, View, Button } from 'react-native'
 import React from 'react'
+import { useNavigation, useRoute } from '@react-navigation/native';
 
-const HomePage = ({ route, navigation}) => {
-    const { username } = route.params;
+const HomePage = () => {
+    //const { username } = route.params;
+    const navigation = useNavigation();
+    const route = useRoute();
+
+    const { username } = route.params || {};
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome, {username}</Text>
