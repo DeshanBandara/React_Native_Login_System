@@ -54,8 +54,9 @@ const RegistrationPage = ({ navigation }) => {
 
   return (
     <ImageBackground
-        source={{uri: '' }}
+        source={require('../assets/images/bgImg.jpg')} 
         style={styles.background}
+        resizeMode="cover"
     >
         <View style={styles.container}>
       <Text style={styles.title}>My Login App</Text>
@@ -105,9 +106,12 @@ export default RegistrationPage
 const styles = StyleSheet.create({
     background: {
         flex: 1,
-        resizeMode: 'cover',
         justifyContent: 'center',
         alignItems: 'center',
+        maxWidth:"100vw",
+        maxHeight:"100vh",
+        width:"100%",
+        height:"100%"
     },
     container: {
         flex: 1,
@@ -115,7 +119,6 @@ const styles = StyleSheet.create({
         alignments: 'center',
         padding: 20,
         width:'60%',
-        backgroundColor: 'rgba(0,0,0,0.7)',
     },
     title: {
         fontSize: 30,
@@ -123,7 +126,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         textAlign: 'center',
         fontWeight: 'bold',
-        color: '#fff',
+        color: 'rgba(0,0,0,0.7)',
     },
     input: {
         width: '100%',
