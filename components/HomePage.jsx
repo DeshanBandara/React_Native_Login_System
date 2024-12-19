@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Button, TouchableOpacity, ImageBackground } from 'react-native'
 import React from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native';
 
@@ -9,18 +9,34 @@ const HomePage = () => {
 
     const { username } = route.params || {};
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Welcome, {username}</Text>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
-            <Text style={styles.buttonText}>Logout</Text>
-        </TouchableOpacity>
-    </View>
+    <ImageBackground
+        source={require('../assets/images/bgImg.jpg')} 
+        style={styles.background}
+        resizeMode="cover"
+    >
+        <View style={styles.container}>
+            <Text style={styles.title}>Welcome, {username}</Text>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
+                <Text style={styles.buttonText}>Logout</Text>
+            </TouchableOpacity>
+        </View>
+    </ImageBackground>
+    
   )
 }
 
 export default HomePage
 
 const styles = StyleSheet.create({
+    background: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        maxWidth:"100vw",
+        maxHeight:"100vh",
+        width:"100%",
+        height:"100%"
+    },
     container: {
         flex: 1,
         justifyContent: 'center',
@@ -31,6 +47,7 @@ const styles = StyleSheet.create({
         fontSize: 24,
         marginBottom: 20,
         fontWeight: 'bold',
+        color:  'rgba(0,0,0,0.7)',
     },
     button: {
         justifyContent: 'center',
@@ -39,7 +56,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 30,
         borderRadius: 30,
         marginTop: 10,
-        width: '25%',
+        width: '100',
         alignItems: 'center',
     },
     buttonText: {
